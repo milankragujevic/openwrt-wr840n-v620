@@ -482,7 +482,7 @@ endef
 TARGET_DEVICES += tplink_tl-wr840n-v5
 
 define Device/tplink_tl-wr840n-v6.2
-  $(Device/tplink)
+  $(Device/tplink-v2)
   SOC := mt7628an
   IMAGE_SIZE := 3968k
   DEVICE_VENDOR := TP-Link
@@ -494,7 +494,9 @@ define Device/tplink_tl-wr840n-v6.2
   TPLINK_HWREVADD := 0x7
   TPLINK_HVERSION := 3
   SUPPORTED_DEVICES += tl-wr840n-v6.2
+  IMAGES := sysupgrade.bin tftp-recovery.bin
   IMAGE/tftp-recovery.bin := pad-extra 64k | $$(IMAGE/factory.bin)
+  DEFAULT := n
 endef
 TARGET_DEVICES += tplink_tl-wr840n-v6.2
 
